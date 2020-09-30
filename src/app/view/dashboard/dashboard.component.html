@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-sm-3">
+        <div class="center">
+            <button class="btn btn-warning" (click)="generatepdf()">Generar Informe</button>
+        </div>
+        <p> Graficos</p>
+        <div class="graphics">
+            <button class="btn btn-warning">
+                    <img src="assets/img/areaChart.png">
+            </button>
+            <button class="btn btn-warning">
+                    <img src="assets/img/barChart.png">
+            </button>
+            <button class="btn btn-warning">
+                    <img src="assets/img/dataChart.png">
+            </button>
+            <button class="btn btn-warning">
+                    <img src="assets/img/lineChart.png">
+            </button>
+            <button class="btn btn-warning">
+                    <img src="assets/img/pieChart.png">
+            </button>
+        </div>
+
+        <div class="center">
+            <button class="btn btn-warning" (click)="openDialog()"> Agregar nueva Vista</button>
+        </div>
+    </div>
+
+    <div class="col-sm-9">
+        <mat-tab-group>
+            <mat-tab label="Data set">
+                <app-dataset></app-dataset>
+            </mat-tab>
+            <mat-tab *ngFor="let view of views" label="{{view.name}}">
+                <app-view></app-view>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>
