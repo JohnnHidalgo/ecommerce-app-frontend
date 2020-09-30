@@ -42,6 +42,7 @@ import { ListUserClientComponent } from './UIelement/UserClient/list-user-client
 import { AddUserSellerComponent } from './UIelement/UserSeller/add-user-seller/add-user-seller.component';
 import { EditUserSellerComponent } from './UIelement/UserSeller/edit-user-seller/edit-user-seller.component';
 import { ListUserSellerComponent } from './UIelement/UserSeller/list-user-seller/list-user-seller.component';
+import { LoginAdministradorComponent } from './login-administrador/login-administrador.component';
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -66,6 +67,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
     AddUserSellerComponent,
     EditUserSellerComponent,
     ListUserSellerComponent,
+    LoginAdministradorComponent,
   ],
   imports: [
     BrowserModule,
