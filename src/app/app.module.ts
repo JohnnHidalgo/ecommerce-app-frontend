@@ -36,6 +36,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PresentationComponent } from './view/presentation/presentation.component';
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import { AddUserClientComponent } from './UIelement/UserClient/add-user-client/add-user-client.component';
+import { EditUserClientComponent } from './UIelement/UserClient/edit-user-client/edit-user-client.component';
+import { ListUserClientComponent } from './UIelement/UserClient/list-user-client/list-user-client.component';
+import { AddUserSellerComponent } from './UIelement/UserSeller/add-user-seller/add-user-seller.component';
+import { EditUserSellerComponent } from './UIelement/UserSeller/edit-user-seller/edit-user-seller.component';
+import { ListUserSellerComponent } from './UIelement/UserSeller/list-user-seller/list-user-seller.component';
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -54,6 +60,12 @@ PdfMakeWrapper.setFonts(pdfFonts);
     ViewdialogComponent,
     DashboarddialogComponent,
     PresentationComponent,
+    AddUserClientComponent,
+    EditUserClientComponent,
+    ListUserClientComponent,
+    AddUserSellerComponent,
+    EditUserSellerComponent,
+    ListUserSellerComponent,
   ],
   imports: [
     BrowserModule,
