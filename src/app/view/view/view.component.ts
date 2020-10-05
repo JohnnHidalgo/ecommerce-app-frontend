@@ -113,7 +113,7 @@ export class ViewComponent implements OnInit, AfterViewInit {
   showXAxisLabel = true;
   xAxisLabel = 'Departamentos';
   showYAxisLabel = true;
-  yAxisLabel = 'Casos Totales';
+  yAxisLabel = 'Ventas Mensuales';
   timeline = true;
 
   //pie
