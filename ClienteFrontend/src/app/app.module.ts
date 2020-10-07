@@ -12,7 +12,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
-import { AuthenticationComponent } from './core/authentication/authentication.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
+
 import { LoginComponent } from './core/authentication/login/login.component';
 import { SigninComponent } from './core/authentication/signin/signin.component';
 
@@ -21,7 +25,6 @@ import { SigninComponent } from './core/authentication/signin/signin.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    AuthenticationComponent,
     LoginComponent,
     SigninComponent
   ],
@@ -35,7 +38,9 @@ import { SigninComponent } from './core/authentication/signin/signin.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
