@@ -39,6 +39,13 @@ export class HomeComponent implements OnInit {
     console.log(dash.idDashboard.toString());
     this.router.navigate(["dashboard"]);
   }
+  //connect to api
+  deleteDashboard(dash:Dashboard):void{
+    localStorage.setItem("idDash",dash.idDashboard.toString());
+    localStorage.setItem("nameDash",dash.name.toString());
+    console.log(dash.idDashboard.toString());
+    this.router.navigate(["dashboard"]);
+  }
 
   public style: object = {};
 
