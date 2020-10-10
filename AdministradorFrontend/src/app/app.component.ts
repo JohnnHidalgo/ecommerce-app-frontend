@@ -20,8 +20,16 @@ export class AppComponent {
   AddUserSeller(){
     this.router.navigate(["addUserSeller"]);
   }
-  ListUseSellerr(){
+  ListUseSeller(){
     this.router.navigate(["listUserSeller"]);
   }
+  AddUserClient(){
+    this.router.navigate(["addUserClient"]);
+  }
+  ListUseClient(){
+    this.router.navigate(["listUserClient"]);
+  }
+
+
   
 }

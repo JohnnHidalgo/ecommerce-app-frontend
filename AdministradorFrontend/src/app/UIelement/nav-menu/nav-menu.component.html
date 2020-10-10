@@ -6,6 +6,8 @@
             <a mat-list-item [routerLink]="['home']">Home</a>
             <a mat-list-item [routerLink]="['addUserSeller']">Agregar Vendedor</a>
             <a mat-list-item [routerLink]="['listUserSeller']">Lista de Vendedores</a>
+            <a mat-list-item [routerLink]="['addUserClient']">Agregar Clientes</a>
+            <a mat-list-item [routerLink]="['listUserClient']">Lista de Clientes</a>
             <a mat-list-item [routerLink]="['login']">Login</a>
         </mat-nav-list>
     </mat-sidenav>
@@ -25,6 +27,7 @@
             </p>
             <mat-menu #appMenu="matMenu">
                 <button mat-menu-item (click)="logout()">Logout</button>
+                <button mat-menu-item (click)="AddUser()">Registro</button>
                 <button mat-menu-item>Help</button>
             </mat-menu>
 

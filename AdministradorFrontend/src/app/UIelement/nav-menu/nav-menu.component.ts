@@ -27,4 +27,8 @@ export class NavMenuComponent {
     this.router.navigate(['/login']);
   }
 
+  AddUser(){
+    this.router.navigate(["addUser"]);
+  }
+  
 }
