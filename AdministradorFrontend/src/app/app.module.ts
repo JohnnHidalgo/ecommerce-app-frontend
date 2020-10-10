@@ -43,6 +43,10 @@ import { AddUserSellerComponent } from './UIelement/UserSeller/add-user-seller/a
 import { EditUserSellerComponent } from './UIelement/UserSeller/edit-user-seller/edit-user-seller.component';
 import { ListUserSellerComponent } from './UIelement/UserSeller/list-user-seller/list-user-seller.component';
 import { LoginAdministradorComponent } from './login-administrador/login-administrador.component';
+import { StoreComponent } from './store/store.component';
+import { DeleteDashboarddialogComponent } from './UIelement/dialogs/delete-dashboarddialog/delete-dashboarddialog.component';
+import { DeleteComponent } from './UIelement/dialogs/delete/delete.component';
+import { DeleteviewdialogComponent } from './UIelement/dialogs/deleteviewdialog/deleteviewdialog.component';
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -68,6 +72,10 @@ PdfMakeWrapper.setFonts(pdfFonts);
     EditUserSellerComponent,
     ListUserSellerComponent,
     LoginAdministradorComponent,
+    StoreComponent,
+    DeleteDashboarddialogComponent,
+    DeleteComponent,
+    DeleteviewdialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +104,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
   ],
   providers: [ServiceService, LoginGuard, NologinGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DashboarddialogComponent, ViewdialogComponent]
+  entryComponents: [DashboarddialogComponent, ViewdialogComponent, DeleteDashboarddialogComponent,DeleteviewdialogComponent]
 })
 
 export class AppModule {

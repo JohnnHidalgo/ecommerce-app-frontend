@@ -10,6 +10,8 @@ import { MarkerType } from 'igniteui-angular-charts';
 import WorldLocations from './WorldLocations';
 import { CSVtotal } from 'src/app/model/csv/CSVtotal';
 import { HttpClient } from '@angular/common/http';
+import {MatDialog} from '@angular/material';
+import { DeleteviewdialogComponent } from 'src/app/UIelement/dialogs/deleteviewdialog/deleteviewdialog.component';
 
 @Component({
   selector: 'app-view',
@@ -30,12 +32,26 @@ export class ViewComponent implements OnInit, AfterViewInit {
   barChart: BarChart= new BarChart();
 
   public userArray: any;
-  constructor(private service:ServiceService) { 
+  constructor(private service:ServiceService, public dialog:MatDialog) { 
 
   }
 
   ngOnInit() {   
 
+  }
+
+
+  openDeletionDialog(){
+    
+    const dialogRef = this.dialog.open(DeleteviewdialogComponent, { });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.newDashboardName = result;
+      //console.log(this.newDashboardName);
+      //this.createDashboard();
+    });
+    
   }
 
   public ngAfterViewInit(): void {
