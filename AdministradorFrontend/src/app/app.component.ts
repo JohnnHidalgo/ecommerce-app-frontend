@@ -17,5 +17,11 @@ export class AppComponent {
   ListUser(){
     this.router.navigate(["listUser"]);
   }
+  AddUserSeller(){
+    this.router.navigate(["addUserSeller"]);
+  }
+  ListUseSellerr(){
+    this.router.navigate(["listUserSeller"]);
+  }
   
 }

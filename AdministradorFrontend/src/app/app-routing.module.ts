@@ -11,6 +11,8 @@ import { DatasetComponent } from './view/dataset/dataset.component';
 import { LoginGuard } from './login.guard';
 import { NologinGuard } from './nologin.guard';
 import { PresentationComponent } from './view/presentation/presentation.component';
+import { AddUserSellerComponent } from './UIelement/UserSeller/add-user-seller/add-user-seller.component';
+import { ListUserSellerComponent } from './UIelement/UserSeller/list-user-seller/list-user-seller.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/presentation',pathMatch: 'full'},
@@ -18,6 +20,8 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent, canActivate:[LoginGuard]},
   {path:'addUser',component:AddUserComponent, },
   {path:'listUser',component:ListUserComponent, canActivate:[LoginGuard]},
+  {path:'addUserSeller',component:AddUserSellerComponent, },
+  {path:'listUserSeller',component:ListUserSellerComponent, canActivate:[LoginGuard]},
   {path:'editUser',component:EditUserComponent, canActivate:[LoginGuard]},
   {path: 'login', component:LoginComponent, canActivate:[NologinGuard]},
   {path: 'view', component:ViewComponent, canActivate:[LoginGuard]},
