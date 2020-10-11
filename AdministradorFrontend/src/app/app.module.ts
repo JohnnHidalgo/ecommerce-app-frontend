@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavMenuComponent } from './UIelement/nav-menu/nav-menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatSelectModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from './view/home/home.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
@@ -47,6 +47,7 @@ import { StoreComponent } from './store/store.component';
 import { DeleteDashboarddialogComponent } from './UIelement/dialogs/delete-dashboarddialog/delete-dashboarddialog.component';
 import { DeleteComponent } from './UIelement/dialogs/delete/delete.component';
 import { DeleteviewdialogComponent } from './UIelement/dialogs/deleteviewdialog/deleteviewdialog.component';
+import { AddProductComponent } from './UIelement/Product/add-product/add-product.component';
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -76,6 +77,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
     DeleteDashboarddialogComponent,
     DeleteComponent,
     DeleteviewdialogComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,6 +94,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     DragDropModule,
     ResizableModule,
     IgxGeographicMapModule,

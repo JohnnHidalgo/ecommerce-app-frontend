@@ -6,6 +6,7 @@ import { View } from '../model/View';
 import { Attribute } from '../model/Attribute';
 import { Graphic } from '../model/Graphic';
 import { GraphicType } from '../model/GraphicType';
+import { Product } from '../model/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,18 @@ export class ServiceService {
   
   constructor(private http:HttpClient) { }
 
-  Url='http://localhost:8080/ejemplo01/k1/user/';
+  Url='http://localhost:8080/ejemplo01//k1/persona/';
+  UrlPersonaSeller='http://localhost:8080/ejemplo01/k1/persona/addUserSeller';
   dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard/';
   viewUrl='http://localhost:8080/ejemplo01/k1/view/';
   attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
   graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
   graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
+
+
+
+
+  UrlProduct='http://localhost:8080/ejemplo01/k1/producto';
 
 
   getUser(){  
@@ -49,6 +56,23 @@ export class ServiceService {
   logingetUser(nickname:String){
     return this.http.get<User>(this.Url+"/userNick/"+nickname);
   }
+
+
+
+
+
+
+  createUserSeller(user:User){
+    return this.http.post<User>(this.UrlPersonaSeller+"/",user);
+  }
+
+
+
+  //Product
+  createProduct(product:Product){
+    return this.http.post<User>(this.UrlProduct+"/1/",product);
+  }
+
 
   getDashboardbyUser(idUser:number){
     return this.http.get<Dashboard[]>(this.dashboardUrl+"/userdash/"+idUser);

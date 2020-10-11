@@ -18,10 +18,10 @@ export class AddUserSellerComponent implements OnInit {
 
   //TODO: Cambiar a la nueva entidad
   CreateUser(user:User){
-    this.service.createUser(this.user)
+    this.service.createUserSeller(this.user)
     .subscribe(data=>{
       alert("Creación Exitosa");
-      this.router.navigate(["listUser"]);
+      this.router.navigate(["listUserSeller"]);
     })
   }
 

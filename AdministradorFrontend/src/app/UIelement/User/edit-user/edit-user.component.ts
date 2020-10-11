@@ -25,6 +25,7 @@ export class EditUserComponent implements OnInit {
     })
   }
 
+  
   Update(user:User){
     this.service.updateUser(user)
     .subscribe(data=>{

@@ -1,3 +1,77 @@
-<p>
-  store works!
-</p>
+<div>
+    <h4>Nuevo Producto</h4>
+</div>
+<div>
+    <mat-grid-list cols="4" rowHeight="2:1">
+        <mat-grid-tile>
+            <button (click)="dashboardRoute()" class="newDashButton" tyle="margin-left: 10px;">
+                  <img src="assets/img/addIcon.png" >
+          </button>
+
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<div>
+    <h4>Mis Productos</h4>
+</div>
+<div>
+    <mat-grid-list cols="4" rowHeight="2:1">
+        <!---mat-grid-tile *ngFor="let dashboard of dashboardlist"-->
+        <mat-grid-tile>
+            <div class="column">
+                <div>
+                    <img src="https://lh3.googleusercontent.com/proxy/Qw-em3FqSQHSx5u00p_aTybqcrqMiZ4WcOOw4fxHqmxwAmkuYRFqhClo40pwBy80BCEt7QhiDtgilCDULYdwQjT2Fg1d6UeE2aGH8ZJFOndbXTMe_-l4DsJzdjuJUJ0HqhZxz0xFEvlglGlfkTtt5blrAGwRcptOZhXoIZyeiCa6zatJknM" width="150 " height="70 ">
+                </div>
+                <div>Producto 1</div>
+                <div>
+                    <button (click)="dashboardRoute(dashboard) " class="btn btn-info " style="margin-left: 10px; ">Ver</button>
+                </div>
+                <div>
+                    <button (click)="openDeletionDialog(dashboard) " class="btn btn-info " style="margin-left: 10px; ">Eliminar</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="column">
+                <div>
+                    <img src="https://lh3.googleusercontent.com/proxy/Qw-em3FqSQHSx5u00p_aTybqcrqMiZ4WcOOw4fxHqmxwAmkuYRFqhClo40pwBy80BCEt7QhiDtgilCDULYdwQjT2Fg1d6UeE2aGH8ZJFOndbXTMe_-l4DsJzdjuJUJ0HqhZxz0xFEvlglGlfkTtt5blrAGwRcptOZhXoIZyeiCa6zatJknM" width="150 " height="70 ">
+                </div>
+                <div>Producto 1</div>
+                <div>
+                    <button (click)="dashboardRoute(dashboard) " class="btn btn-info " style="margin-left: 10px; ">Ver</button>
+                </div>
+                <div>
+                    <button (click)="openDeletionDialog(dashboard) " class="btn btn-info " style="margin-left: 10px; ">Eliminar</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="column">
+                <div>
+                    <img src="https://lh3.googleusercontent.com/proxy/Qw-em3FqSQHSx5u00p_aTybqcrqMiZ4WcOOw4fxHqmxwAmkuYRFqhClo40pwBy80BCEt7QhiDtgilCDULYdwQjT2Fg1d6UeE2aGH8ZJFOndbXTMe_-l4DsJzdjuJUJ0HqhZxz0xFEvlglGlfkTtt5blrAGwRcptOZhXoIZyeiCa6zatJknM" width="150 " height="70 ">
+                </div>
+                <div>Producto 1</div>
+                <div>
+                    <button (click)="dashboardRoute(dashboard) " class="btn btn-info " style="margin-left: 10px; ">Ver</button>
+                </div>
+                <div>
+                    <button (click)="openDeletionDialog(dashboard) " class="btn btn-info " style="margin-left: 10px; ">Eliminar</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="column">
+                <div>
+                    <img src="https://lh3.googleusercontent.com/proxy/Qw-em3FqSQHSx5u00p_aTybqcrqMiZ4WcOOw4fxHqmxwAmkuYRFqhClo40pwBy80BCEt7QhiDtgilCDULYdwQjT2Fg1d6UeE2aGH8ZJFOndbXTMe_-l4DsJzdjuJUJ0HqhZxz0xFEvlglGlfkTtt5blrAGwRcptOZhXoIZyeiCa6zatJknM" width="150 " height="70 ">
+                </div>
+                <div>Producto 1</div>
+                <div>
+                    <button (click)="dashboardRoute(dashboard) " class="btn btn-info " style="margin-left: 10px; ">Ver</button>
+                </div>
+                <div>
+                    <button (click)="openDeletionDialog(dashboard) " class="btn btn-info " style="margin-left: 10px; ">Eliminar</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

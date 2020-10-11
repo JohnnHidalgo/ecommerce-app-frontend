@@ -17,6 +17,8 @@ import { AddUserClientComponent } from './UIelement/UserClient/add-user-client/a
 import { ListUserClientComponent } from './UIelement/UserClient/list-user-client/list-user-client.component';
 import { EditUserSellerComponent } from './UIelement/UserSeller/edit-user-seller/edit-user-seller.component';
 import { EditUserClientComponent } from './UIelement/UserClient/edit-user-client/edit-user-client.component';
+import { StoreComponent } from './store/store.component';
+import { AddProductComponent } from './UIelement/Product/add-product/add-product.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/presentation',pathMatch: 'full'},
@@ -34,8 +36,9 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent, canActivate:[NologinGuard]},
   {path: 'view', component:ViewComponent, canActivate:[LoginGuard]},
   {path: 'dataset', component:DatasetComponent, canActivate:[LoginGuard]},
-  {path: 'presentation', component:PresentationComponent}
- 
+  {path: 'presentation', component:PresentationComponent},
+  {path: 'store', component:StoreComponent},
+  {path: 'addProduct', component:AddProductComponent}
   
 ];
 
