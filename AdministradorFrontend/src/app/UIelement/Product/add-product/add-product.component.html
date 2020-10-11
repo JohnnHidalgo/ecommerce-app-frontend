@@ -29,22 +29,7 @@
                     <label for="">tipo:</label>
                     <input [(ngModel)]="product.type" name="type" type="text" class="form-control">
                 </div>
-
-
-                <mat-form-field>
-                    <mat-label>Tipo</mat-label>
-                    <select [(ngModel)]="product.type">
-                                    <option value="limpieza">Limpieza</option>
-                                    <option value="ropa">Ropa</option>
-                                    <option value="alimentos">Alimentos</option>
-                                    <option value="electrodomesticos">Electrodomesticos</option>
-                                    <option value="tecnología">Tecnología</option>
-                            </select>
-                </mat-form-field>
-                {{selectedValue}}
-
-
-                <button (click)="CreateProduct(product)" class="btn btn-danger">Agregar</button>
+                <button (click)="CreateProduct()" class="btn btn-danger">Agregar</button>
             </form>
         </div>
     </div>

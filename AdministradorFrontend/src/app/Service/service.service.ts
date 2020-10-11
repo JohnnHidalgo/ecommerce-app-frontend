@@ -70,7 +70,7 @@ export class ServiceService {
 
   //Product
   createProduct(product:Product){
-    return this.http.post<User>(this.UrlProduct+"/1/",product);
+    return this.http.post<Product>(this.UrlProduct+"/idtienda/1",product);
   }
 
 

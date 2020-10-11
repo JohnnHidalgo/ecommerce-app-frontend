@@ -17,11 +17,13 @@ export class AddProductComponent implements OnInit {
 
   selectedValue: string;
   CreateProduct(product:Product){
+    this.product.idProduct=1;
+    console.log(this.product);
+    console.log("product");
     this.service.createProduct(this.product)
     .subscribe(data=>{
       alert("Creación Exitosa");
       this.router.navigate(["listUser"]);
     })
   }
-
 }
