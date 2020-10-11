@@ -2,8 +2,8 @@
     margin-left: 8px;
 }
 
-.example-right-align {
-    text-align: right;
+.example-left-align {
+    text-align: left;
 }
 
 input.example-right-align::-webkit-outer-spin-button,
