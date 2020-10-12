@@ -17,8 +17,11 @@ export class ServiceService {
   constructor(private http:HttpClient) { }
 
   Url='http://localhost:8080/ejemplo01//k1/persona/';
-  UrlPersonaSeller='http://localhost:8080/ejemplo01/k1/persona/addUserSeller';
-  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard/';
+
+  UrlPersonaSeller='http://localhost:8080/ejemplo01/k1';
+  UrlPersonaClient='http://localhost:8080/ejemplo01/k1';
+
+  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard';
   viewUrl='http://localhost:8080/ejemplo01/k1/view/';
   attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
   graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
@@ -63,10 +66,14 @@ export class ServiceService {
 
 
   createUserSeller(user:User){
-    return this.http.post<User>(this.UrlPersonaSeller+"/",user);
+    return this.http.post<User>(this.UrlPersonaSeller+"/persona/addUserSeller/",user);
   }
-
-
+  getUserSeller(){  
+    return this.http.get<User[]>(this.UrlPersonaSeller+"/seller/userselerlist");
+  }
+  getUserClient(){  
+    return this.http.get<User[]>(this.Url+"/cliente/userclientlist");
+  }
 
   //Product
   createProduct(product:Product){

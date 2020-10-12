@@ -15,7 +15,7 @@ export class ListUserSellerComponent implements OnInit {
   constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit() {
-    this.service.getUser()
+    this.service.getUserSeller()
       .subscribe(data => {
         this.user = data;
       });
