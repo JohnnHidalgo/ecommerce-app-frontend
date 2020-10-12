@@ -9,14 +9,12 @@ import { User } from 'src/app/model/User';
   styleUrls: ['./edit-user-seller.component.css']
 })
 export class EditUserSellerComponent implements OnInit {
-  //TODO: cambiar a nueva entidad
   user: User=new User();
   constructor(private router:Router,private service:ServiceService) { }
 
   ngOnInit() {
     this.Edit();  
   }
-  //TODO: cambiar a nueva entidad
   Edit(){
     let id = localStorage.getItem("id");
     console.log(id)
@@ -25,7 +23,6 @@ export class EditUserSellerComponent implements OnInit {
       this.user=data;
     })
   }
-  //TODO: cambiar a nueva entidad
   UpdateSeller(){
   console.log(this.user);
     this.service.updateUserSeller(this.user)
@@ -34,9 +31,7 @@ export class EditUserSellerComponent implements OnInit {
 
       alert("Se Actualizo con Exito...!!!");
       this.router.navigate(["listUserSeller"]);
-    })
-    
+    })  
   }
-
 
 }

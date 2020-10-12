@@ -78,7 +78,9 @@ export class ServiceService {
   getUserClient(){  
     return this.http.get<User[]>(this.UrlPersonaClient+"/cliente/userclientlist");
   }
-
+  updateUserClient(user:User){
+    return this.http.put<User>(this.UrlPersonaSeller+"/cliente/editUserClient",user);
+  }
   //Product
   createProduct(product:Product){
     return this.http.post<Product>(this.UrlProduct+"/idtienda/1",product);
