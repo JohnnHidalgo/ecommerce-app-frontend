@@ -10,7 +10,6 @@ import { ServiceService } from 'src/app/Service/service.service';
 })
 export class ListUserSellerComponent implements OnInit {
 
-
   user: User[];
   constructor(private service: ServiceService, private router: Router) { }
 
@@ -33,5 +32,4 @@ export class ListUserSellerComponent implements OnInit {
       alert("Usuario eliminado...");
     })
   }
-
 }

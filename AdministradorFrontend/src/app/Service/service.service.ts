@@ -40,7 +40,7 @@ export class ServiceService {
     return this.http.post<User>(this.Url+"/add/",user);
   }
   getUserId(id:number){
-    return this.http.get<User>(this.Url+"/"+id);
+    return this.http.get<User>(this.Url+"/idUser/"+id);
   }
   updateUser(user:User){
     return this.http.put<User>(this.Url+"/"+user.idUser,user);
@@ -53,7 +53,7 @@ export class ServiceService {
   }
 
   loginUser(user:User){
-    return this.http.post<User>(this.Url+"/login",user);
+    return this.http.post<User>(this.Url+"login",user);
     console.log(user);
   }
   logingetUser(nickname:String){
@@ -71,6 +71,10 @@ export class ServiceService {
   getUserSeller(){  
     return this.http.get<User[]>(this.UrlPersonaSeller+"/seller/userselerlist");
   }
+  updateUserSeller(user:User){
+    return this.http.put<User>(this.UrlPersonaSeller+"/editUserSeller",user);
+  }
+
   getUserClient(){  
     return this.http.get<User[]>(this.UrlPersonaClient+"/cliente/userclientlist");
   }
