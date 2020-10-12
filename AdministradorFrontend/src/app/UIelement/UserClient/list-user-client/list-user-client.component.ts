@@ -20,12 +20,12 @@ export class ListUserClientComponent implements OnInit {
       });
   }
 
-  EditUser(user:User):void{
+  EditUserClient(user:User):void{
     localStorage.setItem("id",user.idUser.toString());
-    this.router.navigate(["editUser"])
+    this.router.navigate(["editUserClient"])
   }
 
-  Delete(user:User){
+  DeleteClient(user:User){
     this.service.deleteUser(user)
     .subscribe(data=>{
       this.user=this.user.filter(p=>p!==user);

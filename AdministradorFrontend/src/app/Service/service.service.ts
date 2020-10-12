@@ -72,7 +72,7 @@ export class ServiceService {
     return this.http.get<User[]>(this.UrlPersonaSeller+"/seller/userselerlist");
   }
   getUserClient(){  
-    return this.http.get<User[]>(this.Url+"/cliente/userclientlist");
+    return this.http.get<User[]>(this.UrlPersonaClient+"/cliente/userclientlist");
   }
 
   //Product
