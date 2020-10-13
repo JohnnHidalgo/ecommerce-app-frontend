@@ -25,11 +25,11 @@
         </button>
             <mat-menu #menu="matMenu">
 
-                <button mat-menu-item (click)="openDialog()">
+                <button mat-menu-item (click)="login()">
                 <mat-icon>person</mat-icon>
                 <span>Iniciar sesion</span>
               </button>
-                <button mat-menu-item>
+                <button mat-menu-item (click)="signin()">
                 <mat-icon>person_add</mat-icon>
                 <span>Registrarse</span>
               </button>

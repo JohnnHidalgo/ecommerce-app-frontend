@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../../Service/service.service';
+import {MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-signin',
@@ -8,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class SigninComponent implements OnInit {
 
   hide = true;
-  constructor() { }
+  constructor(private service:ServiceService,public dialog:MatDialog) { }
 
   ngOnInit(): void {
   }

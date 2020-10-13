@@ -12,13 +12,17 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  client = 'http://localhost:8080/ejemplo01/k1/persona';
+  client = 'http://localhost:8080/ejemplo01/k1/client';
   product = 'http://localhost:8080/ejemplo01/k1/product';
 
   // Client
 
   loginClient( client: Client){
-    return this.http.post<Client>(this.client + '/login' , client);
+    return this.http.post<Client>(this.client + '/loginuserClient' , client);
+  }
+
+  RegisterClient( client: Client){
+    return this.http.post<Client>(this.client + '/addUserClient' , client);
   }
 
 
