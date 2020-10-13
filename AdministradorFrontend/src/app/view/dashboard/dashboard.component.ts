@@ -141,7 +141,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });    
   }
 
-
   createView(){
     var idDash:number = +localStorage.getItem("idDash");
     this.newview.name = this.newViewName;
@@ -160,27 +159,19 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }else{
       console.log('Fail');
     }
-
-
   }
 
-
-
   async generatepdf(){
-
     var nameDash:String = localStorage.getItem("idDash");
     const pdf = new PdfMakeWrapper();
-    
     pdf.add(
       new Table([
         [ await new Img('assets/img/2.png').fit([100,100]).build(),new Txt('Reporte generado por BI-AS').bold().end, new QR('my code').fit(100).end],
       ]).alignment('center').end
     );
-
     pdf.add(
       new SVG('<svg width="100" height="10" viewBox="0 0 300 200">...</svg>').end
     );
-
     pdf.add(
       new Txt('Grafico 1').alignment('center').end
     );
@@ -188,7 +179,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     pdf.add(
       new SVG('<svg width="100" height="40" viewBox="0 0 300 200">...</svg>').end
     );
-
     pdf.add(
       new Txt('Grafico 2').alignment('center').end
     );
@@ -196,7 +186,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     pdf.add(
       new SVG('<svg width="100" height="170" viewBox="0 0 300 200">...</svg>').end
     );
-
     pdf.add(
       new Txt('Grafico 3').alignment('center').end
     );
@@ -204,7 +193,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     pdf.add(
       new SVG('<svg width="100" height="40" viewBox="0 0 300 200">...</svg>').end
     );
-
     pdf.add(
       new Txt('Grafico 4').alignment('center').end
     );
@@ -216,9 +204,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       new Txt('Grafico 5').alignment('center').end
     );
     pdf.add( await new Img('assets/img/info5.png').alignment('center').fit([400,400]).build() );
-  
     pdf.create().open();
   }
-
 }
-

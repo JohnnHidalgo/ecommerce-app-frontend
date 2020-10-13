@@ -1,0 +1,9 @@
+<h3 mat-dialog-title>Eliminar</h3>
+<mat-dialog-content class="mat-typography">
+    <p>Es seguro de eliminar este Dashboard</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onCloseDialog()" class="btn btn-warning">Cancelar</button>
+    <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial class="btn btn-warning">Eliminar</button>
+</mat-dialog-actions>

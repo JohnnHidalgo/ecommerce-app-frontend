@@ -10,28 +10,26 @@ import { ServiceService } from 'src/app/Service/service.service';
 })
 export class ListUserSellerComponent implements OnInit {
 
-
   user: User[];
   constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit() {
-    this.service.getUser()
+    this.service.getUserSeller()
       .subscribe(data => {
         this.user = data;
       });
   }
 
-  EditUser(user:User):void{
+  EditUserSeller(user:User):void{
     localStorage.setItem("id",user.idUser.toString());
-    this.router.navigate(["editUser"])
+    this.router.navigate(["editUserSeller"])
   }
 
-  Delete(user:User){
+  DeleteSeller(user:User){
     this.service.deleteUser(user)
     .subscribe(data=>{
       this.user=this.user.filter(p=>p!==user);
       alert("Usuario eliminado...");
     })
   }
-
 }

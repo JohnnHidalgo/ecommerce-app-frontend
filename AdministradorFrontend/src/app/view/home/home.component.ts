@@ -5,6 +5,7 @@ import { ServiceService } from 'src/app/Service/service.service';
 import { Dashboard } from 'src/app/model/Dashboard';
 import {MatDialog} from '@angular/material';
 import { DashboarddialogComponent } from 'src/app/UIelement/dialogs/dashboarddialog/dashboarddialog.component';
+import { DeleteDashboarddialogComponent } from 'src/app/UIelement/dialogs/delete-dashboarddialog/delete-dashboarddialog.component';
 
 
 export interface DialogData {
@@ -38,6 +39,21 @@ export class HomeComponent implements OnInit {
     localStorage.setItem("nameDash",dash.name.toString());
     console.log(dash.idDashboard.toString());
     this.router.navigate(["dashboard"]);
+  }
+  //connect to api
+  s
+
+  openDeletionDialog(){
+    
+    const dialogRef = this.dialog.open(DeleteDashboarddialogComponent, { });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.newDashboardName = result;
+      console.log(this.newDashboardName);
+      //this.createDashboard();
+    });
+    
   }
 
   public style: object = {};

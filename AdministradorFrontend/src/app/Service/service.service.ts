@@ -6,6 +6,7 @@ import { View } from '../model/View';
 import { Attribute } from '../model/Attribute';
 import { Graphic } from '../model/Graphic';
 import { GraphicType } from '../model/GraphicType';
+import { Product } from '../model/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,21 @@ export class ServiceService {
   
   constructor(private http:HttpClient) { }
 
-  Url='http://localhost:8080/ejemplo01/k1/user/';
-  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard/';
+  Url='http://localhost:8080/ejemplo01//k1/persona/';
+
+  UrlPersonaSeller='http://localhost:8080/ejemplo01/k1';
+  UrlPersonaClient='http://localhost:8080/ejemplo01/k1';
+
+  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard';
   viewUrl='http://localhost:8080/ejemplo01/k1/view/';
   attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
   graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
   graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
+
+
+
+
+  UrlProduct='http://localhost:8080/ejemplo01/k1/producto';
 
 
   getUser(){  
@@ -30,7 +40,7 @@ export class ServiceService {
     return this.http.post<User>(this.Url+"/add/",user);
   }
   getUserId(id:number){
-    return this.http.get<User>(this.Url+"/"+id);
+    return this.http.get<User>(this.Url+"/idUser/"+id);
   }
   updateUser(user:User){
     return this.http.put<User>(this.Url+"/"+user.idUser,user);
@@ -43,12 +53,39 @@ export class ServiceService {
   }
 
   loginUser(user:User){
-    return this.http.post<User>(this.Url+"/login",user);
+    return this.http.post<User>(this.Url+"login",user);
     console.log(user);
   }
   logingetUser(nickname:String){
     return this.http.get<User>(this.Url+"/userNick/"+nickname);
   }
+
+
+
+
+
+
+  createUserSeller(user:User){
+    return this.http.post<User>(this.UrlPersonaSeller+"/persona/addUserSeller/",user);
+  }
+  getUserSeller(){  
+    return this.http.get<User[]>(this.UrlPersonaSeller+"/seller/userselerlist");
+  }
+  updateUserSeller(user:User){
+    return this.http.put<User>(this.UrlPersonaSeller+"/persona/editUserSeller",user);
+  }
+
+  getUserClient(){  
+    return this.http.get<User[]>(this.UrlPersonaClient+"/cliente/userclientlist");
+  }
+  updateUserClient(user:User){
+    return this.http.put<User>(this.UrlPersonaSeller+"/cliente/editUserClient",user);
+  }
+  //Product
+  createProduct(product:Product){
+    return this.http.post<Product>(this.UrlProduct+"/idtienda/1",product);
+  }
+
 
   getDashboardbyUser(idUser:number){
     return this.http.get<Dashboard[]>(this.dashboardUrl+"/userdash/"+idUser);

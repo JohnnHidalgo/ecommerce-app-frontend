@@ -3,16 +3,18 @@
     <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="over" [opened]="false">
         <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list>
-            <a mat-list-item [routerLink]="['home']">Home</a>
-            <a mat-list-item [routerLink]="['addUser']">Agregar Vendedor</a>
-            <a mat-list-item [routerLink]="['listUser']">Lista de Vendedores</a>
+            <a mat-list-item [routerLink]="['home']">Dashboard</a>
+            <a mat-list-item [routerLink]="['store']">Tienda</a>
+            <a mat-list-item [routerLink]="['addUserSeller']">Agregar Vendedor</a>
+            <a mat-list-item [routerLink]="['listUserSeller']">Lista de Vendedores</a>
+            <a mat-list-item [routerLink]="['addUserClient']">Agregar Clientes</a>
+            <a mat-list-item [routerLink]="['listUserClient']">Lista de Clientes</a>
             <a mat-list-item [routerLink]="['login']">Login</a>
         </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-
 
             <button mat-button (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
@@ -25,6 +27,7 @@
             </p>
             <mat-menu #appMenu="matMenu">
                 <button mat-menu-item (click)="logout()">Logout</button>
+                <button mat-menu-item (click)="AddUser()">Registro</button>
                 <button mat-menu-item>Help</button>
             </mat-menu>
 

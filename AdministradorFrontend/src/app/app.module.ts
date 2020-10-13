@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavMenuComponent } from './UIelement/nav-menu/nav-menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatSelectModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from './view/home/home.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
@@ -43,6 +43,11 @@ import { AddUserSellerComponent } from './UIelement/UserSeller/add-user-seller/a
 import { EditUserSellerComponent } from './UIelement/UserSeller/edit-user-seller/edit-user-seller.component';
 import { ListUserSellerComponent } from './UIelement/UserSeller/list-user-seller/list-user-seller.component';
 import { LoginAdministradorComponent } from './login-administrador/login-administrador.component';
+import { StoreComponent } from './store/store.component';
+import { DeleteDashboarddialogComponent } from './UIelement/dialogs/delete-dashboarddialog/delete-dashboarddialog.component';
+import { DeleteComponent } from './UIelement/dialogs/delete/delete.component';
+import { DeleteviewdialogComponent } from './UIelement/dialogs/deleteviewdialog/deleteviewdialog.component';
+import { AddProductComponent } from './UIelement/Product/add-product/add-product.component';
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -68,6 +73,11 @@ PdfMakeWrapper.setFonts(pdfFonts);
     EditUserSellerComponent,
     ListUserSellerComponent,
     LoginAdministradorComponent,
+    StoreComponent,
+    DeleteDashboarddialogComponent,
+    DeleteComponent,
+    DeleteviewdialogComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +94,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     DragDropModule,
     ResizableModule,
     IgxGeographicMapModule,
@@ -96,7 +107,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
   ],
   providers: [ServiceService, LoginGuard, NologinGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DashboarddialogComponent, ViewdialogComponent]
+  entryComponents: [DashboarddialogComponent, ViewdialogComponent, DeleteDashboarddialogComponent,DeleteviewdialogComponent]
 })
 
 export class AppModule {

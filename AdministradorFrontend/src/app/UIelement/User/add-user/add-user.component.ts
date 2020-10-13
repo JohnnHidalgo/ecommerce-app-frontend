@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/model/User';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
-import { User } from 'src/app/model/User';
-
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',

@@ -32,5 +32,4 @@ export class ListUserComponent implements OnInit {
       alert("Usuario eliminado...");
     })
   }
-
 }
