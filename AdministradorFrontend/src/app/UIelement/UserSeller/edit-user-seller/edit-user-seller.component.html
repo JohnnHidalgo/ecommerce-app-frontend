@@ -33,7 +33,9 @@
                     <label for="">Contraseña:</label>
                     <input [(ngModel)]="user.password" name="password" type="text" class="form-control">
                 </div>
+
                 <button (click)="UpdateSeller()" class="btn btn-danger">Guardar</button>
+                <button (click)="openPermisosDialog(user.idUser)" class="btn btn-danger">Agregar Privilegios</button>
             </form>
         </div>
     </div>

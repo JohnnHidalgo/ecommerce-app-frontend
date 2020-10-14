@@ -7,6 +7,7 @@ import { Attribute } from '../model/Attribute';
 import { Graphic } from '../model/Graphic';
 import { GraphicType } from '../model/GraphicType';
 import { Product } from '../model/Product';
+import { Privilegios } from '../model/Privilegios';
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +70,10 @@ export class ServiceService {
   }
   deleteUserSeller(user:User){
     return this.http.put<User>(this.UrlPersonaSeller+"/seller/deletesellerClient",user);
+  }
+
+  privilegioUserSeller(privilegioList:Privilegios[]){
+    return this.http.put<Privilegios[]>(this.UrlPersonaSeller+"/permissions/editUserSeller",privilegioList);
   }
 
   getUserClient(){  
