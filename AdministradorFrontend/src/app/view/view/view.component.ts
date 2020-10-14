@@ -12,6 +12,7 @@ import { CSVtotal } from 'src/app/model/csv/CSVtotal';
 import { HttpClient } from '@angular/common/http';
 import {MatDialog} from '@angular/material';
 import { DeleteviewdialogComponent } from 'src/app/UIelement/dialogs/deleteviewdialog/deleteviewdialog.component';
+import { View } from 'src/app/model/View';
 
 @Component({
   selector: 'app-view',
@@ -38,20 +39,6 @@ export class ViewComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {   
 
-  }
-
-
-  openDeletionDialog(){
-    
-    const dialogRef = this.dialog.open(DeleteviewdialogComponent, { });
-    
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.newDashboardName = result;
-      //console.log(this.newDashboardName);
-      //this.createDashboard();
-    });
-    
   }
 
   public ngAfterViewInit(): void {

@@ -127,7 +127,7 @@ export class ServiceService {
     return this.http.get<View[]>(this.viewUrl+"/dashviews/"+idDash);
   }
   createView(view:View){
-    return this.http.post<View>(this.viewUrl+"/add/",view);
+    return this.http.post<View>(this.viewUrl+"/addview",view);
   }
   getViewId(id:number){
     return this.http.get<View>(this.viewUrl+"/"+id);
@@ -137,7 +137,7 @@ export class ServiceService {
   }
   deleteView(view:View){
     //borrado logico
-    return this.http.put<View>(this.viewUrl+"/"+view.idView,view);
+    return this.http.put<View>(this.viewUrl+"/deleteview",view);
     //borrado fisico
     //return this.http.delete<User>(this.Url+"/"+user.id);
   }

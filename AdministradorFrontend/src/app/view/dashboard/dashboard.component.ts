@@ -13,6 +13,7 @@ import { ViewdialogComponent } from 'src/app/UIelement/dialogs/viewdialog/viewdi
 import { Dashboard } from 'src/app/model/Dashboard';
 import { Graphic } from 'src/app/model/Graphic';
 import { PdfMakeWrapper, Txt, Img, QR,Toc, Canvas, Line,Table,SVG } from 'pdfmake-wrapper';
+import { DeleteviewdialogComponent } from 'src/app/UIelement/dialogs/deleteviewdialog/deleteviewdialog.component';
 
 export interface DialogData {
   name: String;
@@ -46,6 +47,27 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     .subscribe(view=>{
       this.views=view;
       console.log(this.views);
+    })
+
+  }
+
+  openDeletionDialog(view:View){
+    
+    const dialogRef = this.dialog.open(DeleteviewdialogComponent, { });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(view);
+      this.deleteView(view);
+    });
+    
+  }
+
+  deleteView(view:View){
+    var idUser:number = +localStorage.getItem("loginIdUser");
+    this.service.deleteView(view)
+    .subscribe(data => {
+      console.log('Success');
     })
 
   }
