@@ -14,6 +14,7 @@ export class ServiceService {
 
   client = 'http://localhost:8080/ejemplo01/k1/cliente';
   product = 'http://localhost:8080/ejemplo01/k1/product';
+  person = 'http://localhost:8080/ejemplo01/k1/persona';
 
   // Client
 
@@ -25,11 +26,13 @@ export class ServiceService {
     return this.http.post<Cliente>(this.client + '/addUserClient' , client);
   }
 
+  dataClientwithNickname(nickname : string){
+    return this.http.get<Cliente>(this.person + '/usernick/'+nickname);
+  }
+
+  // Product
   addProductToCart( product: Producto){
     return this.http.post<Producto>(this.client + '/addUserClient' , product);
   }
-
-
-  // Product
 
 }

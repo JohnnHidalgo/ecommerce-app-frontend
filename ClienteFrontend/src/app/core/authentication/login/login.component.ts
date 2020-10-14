@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Cliente } from '../../../Shared/Models/Cliente';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ServiceService } from '../../Service/service.service';
-import { FormGroup, FormControl } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { LoginClient } from '../../../Shared/Models/login';
+import { Cliente } from '../../../Shared/Models/Cliente';
 
 
 @Component({
@@ -12,31 +12,35 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private service:ServiceService,private router: Router,private snackBar: MatSnackBar) { }
+  constructor(
+    private service: ServiceService,
+    public dialogRef: MatDialogRef<LoginComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: string) { }
 
-  nickname: string;
-  password: string;
-  hide = true;
+   password: string;
+   hide = true;
 
-  cliente = new FormGroup({
-    nickname: new FormControl(''),
-    password: new FormControl('')
-  });
+  // cliente = new FormGroup({
+  //   nickname: new FormControl(''),
+  //   password: new FormControl('')
+  // });
 
-  client: Cliente = new Cliente();
-
-  clienReturn: Cliente;
+  // client: Cliente = new Cliente();
   ngOnInit(): void {
+    
   }
 
 
-  login(){
-    console.log(this.cliente.value);
+  client =new Cliente();
 
-    this.client.nicknameUser = this.nickname;
+  clienReturn= new Cliente();
+
+ login(){
+
+
+    this.client.nicknameUser = this.data;
     this.client.password = this.password;
 
-    console.log(this.cliente.value);
     this.service.loginClient(this.client)
     .subscribe(data => {
       this.clienReturn=data;
@@ -48,6 +52,8 @@ export class LoginComponent implements OnInit {
     });
 
   }
-
-
+  cancelar() {
+  
+    this.dialogRef.close();
+  }
 }

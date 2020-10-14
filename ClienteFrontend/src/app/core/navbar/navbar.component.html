@@ -1,5 +1,5 @@
 <!-- <mat-sidenav-container class="sidenav-container">
-    
+
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
@@ -14,9 +14,9 @@
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
               <mat-icon>share</mat-icon>
         </button>
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <mat-icon>account_circle</mat-icon>
-        </button>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>account_circle</mat-icon>
+          </button>
             <mat-menu #menu="matMenu">
 
                 <button mat-menu-item (click)="login()">
@@ -42,7 +42,23 @@
     <div class="spacer"></div>
 
     <a mat-button routerLink='home'>Home<mat-icon>home</mat-icon></a>
-    <a mat-button routerLink='login'>Iniciar Sesion <mat-icon>person</mat-icon></a>
-    <a mat-button routerLink='signin'>Registrarse <mat-icon>person_add</mat-icon></a>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-label>{{nombreToolbar}}</mat-label>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
 
+        <button mat-menu-item (click)="login()">
+          <mat-icon>person</mat-icon>
+          <span>Iniciar sesion</span>
+        </button>
+        <button mat-menu-item (click)="signin()">
+          <mat-icon>person_add</mat-icon>
+          <span>Registrarse</span>
+        </button>
+    </mat-menu>
+
+    <!-- <a mat-button routerLink='login'>Iniciar Sesion <mat-icon>person</mat-icon></a>
+    <a mat-button routerLink='signin'>Registrarse <mat-icon>person_add</mat-icon></a>
+ -->
 </mat-toolbar>

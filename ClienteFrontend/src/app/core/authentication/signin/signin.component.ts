@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../Service/service.service';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog,MatDialogRef} from '@angular/material/dialog';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Cliente } from '../../../Shared/Models/Cliente';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -12,7 +12,11 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  constructor(private service:ServiceService,public dialog:MatDialog, private snackBar: MatSnackBar) { }
+  constructor(
+    private service: ServiceService,
+    public dialog: MatDialog,
+    public dialogRef: MatDialogRef<SigninComponent>
+    ) { }
 
   hide = true;
   Cliente = new FormGroup({
@@ -47,12 +51,14 @@ export class SigninComponent implements OnInit {
 
 
     if (this.client != null) {
+      this.dialogRef.close();
       this.service.RegisterClient(this.client)
       .subscribe(data => {
         console.log('Success');
-      })
+      });
     }else{
       console.log('Fail');
+      
     }
     // this.service.RegisterClient(client)
     // .subscribe(data=>{
