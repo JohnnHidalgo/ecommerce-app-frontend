@@ -30,6 +30,10 @@ export class ServiceService {
     return this.http.get<Cliente>(this.person + '/usernick/'+nickname);
   }
 
+  editUser(client:Cliente){
+    return this.http.put<Cliente>(this.client+"/editUserClient", client);
+  }
+
   // Product
   addProductToCart( product: Producto){
     return this.http.post<Producto>(this.client + '/addUserClient' , product);

@@ -36,8 +36,6 @@ export class LoginComponent implements OnInit {
   clienReturn= new Cliente();
 
  login(){
-
-
     this.client.nicknameUser = this.data;
     this.client.password = this.password;
 

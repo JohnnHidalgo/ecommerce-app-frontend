@@ -7,7 +7,7 @@ import {LoginComponent } from '../authentication/login/login.component';
 import { ServiceService } from '../Service/service.service';
 import { SigninComponent } from '../authentication/signin/signin.component';
 import { Cliente } from '../../Shared/Models/Cliente';
-import { ElementSchemaRegistry } from '@angular/compiler';
+import { EditClientComponent } from '../Client/edit-client/edit-client.component';
 
 export class ClientData {
   nicknameUser: string;
@@ -36,7 +36,7 @@ export class NavbarComponent {
     public dialog: MatDialog) {}
 
 
-    dataClient: Cliente=new Cliente();
+    dataClient: Cliente = new Cliente();
 
     nombreToolbar: string;
 
@@ -89,6 +89,19 @@ export class NavbarComponent {
 
   }
 
+
+  editPerson(){
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.disableClose = false;
+    // dialogConfig.autoFocus = true;
+    // dialogConfig.width = "50%";
+    // this.dialog.open(EditClientComponent, dialogConfig);
+
+    const dialogRef = this.dialog.open(EditClientComponent, {
+      width: '250px',
+      data: {name: this.nombreToolbar, animal: this.nombreToolbar}
+    });
+  }
 }
 
 

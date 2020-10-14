@@ -36,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeComponent } from './modules/home/home.component';
+import { EditClientComponent } from './core/Client/edit-client/edit-client.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HomeComponent } from './modules/home/home.component';
     NavbarComponent,
     LoginComponent,
     SigninComponent,
-    HomeComponent
+    HomeComponent,
+    EditClientComponent
   ],
   imports: [
     BrowserModule,
