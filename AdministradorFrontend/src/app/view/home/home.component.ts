@@ -6,6 +6,7 @@ import { Dashboard } from 'src/app/model/Dashboard';
 import {MatDialog} from '@angular/material';
 import { DashboarddialogComponent } from 'src/app/UIelement/dialogs/dashboarddialog/dashboarddialog.component';
 import { DeleteDashboarddialogComponent } from 'src/app/UIelement/dialogs/delete-dashboarddialog/delete-dashboarddialog.component';
+import { UpdateDashboardDialogComponent } from 'src/app/UIelement/dialogs/update-dashboard-dialog/update-dashboard-dialog.component';
 
 
 export interface DialogData {
@@ -42,16 +43,29 @@ export class HomeComponent implements OnInit {
   }
   //connect to api
   
+  openUpdateDialog(dashboard:Dashboard){
+    const dialogRef = this.dialog.open(UpdateDashboardDialogComponent, {
+      data: {name: this.newDashboardName}
+    });
 
-  openDeletionDialog(){
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The update dialog was closed');
+      this.newDashboardName = result;
+      console.log(dashboard);
+      this.updateDash(dashboard);
+    });
+  }
+
+
+  openDeletionDialog(dashboard:Dashboard){
     
     const dialogRef = this.dialog.open(DeleteDashboarddialogComponent, { });
     
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The delete dialog was closed');
       this.newDashboardName = result;
-      console.log(this.newDashboardName);
-      //this.createDashboard();
+      console.log(dashboard);
+      this.deleteDash(dashboard);
     });
     
   }
@@ -119,4 +133,30 @@ export class HomeComponent implements OnInit {
       console.log('Fail');
     } 
   }
+
+
+  deleteDash(dashboard:Dashboard){
+    var idUser:number = +localStorage.getItem("loginIdUser");
+    dashboard.idUser=idUser;
+    console.log(dashboard);
+    this.service.deleteDashboard(dashboard)
+    .subscribe(data => {
+      console.log('Success');
+    })
+
+  }
+
+  updateDash(dashboard:Dashboard){
+    var idUser:number = +localStorage.getItem("loginIdUser");
+    dashboard.idUser=idUser;
+    dashboard.name = this.newDashboardName;
+    console.log("dashboard");
+    console.log(dashboard);
+    this.service.updateDashboard(dashboard)
+    .subscribe(data => {
+      console.log('Success');
+    })
+
+  }
+ 
 }

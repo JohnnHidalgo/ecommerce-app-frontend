@@ -49,9 +49,9 @@ import { DeleteComponent } from './UIelement/dialogs/delete/delete.component';
 import { DeleteviewdialogComponent } from './UIelement/dialogs/deleteviewdialog/deleteviewdialog.component';
 import { AddProductComponent } from './UIelement/Product/add-product/add-product.component';
 import { EditProductComponent } from './UIelement/Product/edit-product/edit-product.component';
-import { DeleteproductdialogComponent } from './UIelement/dialogs/deleteproductdialog/deleteproductdialog.component';
 import { DeleteProductComponent } from './UIelement/Product/delete-product/delete-product.component';
 import { DeleteUserSellerComponent } from './UIelement/UserSeller/delete-user-seller/delete-user-seller.component';
+import { UpdateDashboardDialogComponent } from './UIelement/dialogs/update-dashboard-dialog/update-dashboard-dialog.component';
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -83,9 +83,9 @@ PdfMakeWrapper.setFonts(pdfFonts);
     DeleteviewdialogComponent,
     AddProductComponent,
     EditProductComponent,
-    DeleteproductdialogComponent,
     DeleteProductComponent,
-    DeleteUserSellerComponent
+    DeleteUserSellerComponent,
+    UpdateDashboardDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +115,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
   ],
   providers: [ServiceService, LoginGuard, NologinGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DashboarddialogComponent, ViewdialogComponent, DeleteDashboarddialogComponent,DeleteviewdialogComponent]
+  entryComponents: [DashboarddialogComponent, ViewdialogComponent, DeleteDashboarddialogComponent,DeleteviewdialogComponent,UpdateDashboardDialogComponent]
 })
 
 export class AppModule {

@@ -21,7 +21,7 @@ export class ServiceService {
   UrlPersonaSeller='http://localhost:8080/ejemplo01/k1';
   UrlPersonaClient='http://localhost:8080/ejemplo01/k1';
 
-  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard"';
+  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard';
   viewUrl='http://localhost:8080/ejemplo01/k1/view/';
   attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
   graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
@@ -95,6 +95,9 @@ export class ServiceService {
   }
 
 
+
+
+
   getDashboardbyUser(idUser:number){
     return this.http.get<Dashboard[]>(this.dashboardUrl+"/userdash/"+idUser);
   }
@@ -103,19 +106,16 @@ export class ServiceService {
     return this.http.get<Dashboard[]>(this.dashboardUrl);
   }
   createDashboard(dashboard:Dashboard){
-    return this.http.post<Dashboard>(this.dashboardUrl+"/add/",dashboard);
+    return this.http.post<Dashboard>(this.dashboardUrl+"/adddashbord",dashboard);
   }
   getDashboardId(id:number){
     return this.http.get<Dashboard>(this.dashboardUrl+"/"+id);
   }
   updateDashboard(dashboard:Dashboard){
-    return this.http.put<Dashboard>(this.dashboardUrl+"/"+dashboard.idDashboard,dashboard);
+    return this.http.put<Dashboard>("http://localhost:8080/ejemplo01/k1/dashboard/editdash",dashboard);
   }
   deleteDashboard(dashboard:Dashboard){
-    //borrado logico
-    return this.http.put<Dashboard>(this.dashboardUrl+"/"+dashboard.idDashboard,dashboard);
-    //borrado fisico
-    //return this.http.delete<User>(this.Url+"/"+user.id);
+    return this.http.put<Dashboard>("http://localhost:8080/ejemplo01/k1/dashboard/deletedash",dashboard);
   }
 
 
