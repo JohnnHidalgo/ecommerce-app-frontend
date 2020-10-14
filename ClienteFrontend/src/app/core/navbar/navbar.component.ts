@@ -2,8 +2,10 @@ import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { MatDialogConfig,MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {LoginComponent } from '../authentication/login/login.component';
+import { ServiceService } from '../Service/service.service';
+import { SigninComponent } from '../authentication/signin/signin.component';
 
 
 
@@ -22,22 +24,30 @@ export class NavbarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private dialog: MatDialog) {}
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {}
 
-  openDialog() {
+  login() {
+    
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
 
-    const dialogRef = this.dialog.open(LoginComponent, dialogConfig);
+    this.dialog.open(LoginComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(
-      // data => {
-      //           // this.saveNewCourse(data);
-      // }, error => this.logService.print(error, LogService.ERROR_MSG)
-      
-      );
+  }
+
+  signin() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+
+    this.dialog.open(SigninComponent, dialogConfig);
+
+
+    
 
   }
 }
