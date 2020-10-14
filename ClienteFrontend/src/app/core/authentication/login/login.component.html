@@ -2,12 +2,13 @@
     <p>What's your favorite animal?</p>
     <mat-form-field>
         <mat-label>Nombre de usuario</mat-label>
-        <input matInput [(ngModel)]='data'>
+        <input matInput [(ngModel)]='data' required='required' type='text'>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field hintLabel="Min 8 characters">
         <mat-label>Contraseña</mat-label>
-        <input matInput [(ngModel)]='password' type='password'>
+        <input matInput #input [(ngModel)]='password' minlength="8" maxlength="20" type='password' required='required'>
+        <mat-hint ALIGN="end">{{input.value?.length || 8}}/20</mat-hint>
     </mat-form-field>
 </div>
 <div mat-dialog-actions>

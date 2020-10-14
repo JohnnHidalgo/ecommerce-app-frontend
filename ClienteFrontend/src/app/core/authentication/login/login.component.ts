@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private service: ServiceService,
     public dialogRef: MatDialogRef<LoginComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: string) { }
+    @Inject(MAT_DIALOG_DATA) public data: string,
+    public snackBar:MatSnackBar) { }
 
    password: string;
    hide = true;
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
+  
+  contador = 0;
 
   client =new Cliente();
 
@@ -41,11 +43,17 @@ export class LoginComponent implements OnInit {
 
     this.service.loginClient(this.client)
     .subscribe(data => {
-      this.clienReturn=data;
       if (data != null) {
+        this.clienReturn = data;
+      console.log(data);
         console.log('Bienvenido ' + this.clienReturn.lastName);
+
       }else{
-        console.log('Error:  Los datos no son correctos');
+
+        // this.contador++;
+        // if (this.contador>3) {
+        //   this.snackBar.open('No puede ingresar al sistema', '', {duration: 2000,});
+        // }
       }
     });
 

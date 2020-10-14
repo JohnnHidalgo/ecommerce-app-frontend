@@ -48,17 +48,23 @@
     </button>
     <mat-menu #menu="matMenu">
 
-        <button mat-menu-item (click)="login()">
+
+        <button mat-menu-item (click)="login()" *ngIf="displaylogin">
           <mat-icon>person</mat-icon>
           <span>Iniciar sesion</span>
         </button>
-        <button mat-menu-item (click)="signin()">
+        <button mat-menu-item (click)="signin()" *ngIf="displaylogin">
           <mat-icon>person_add</mat-icon>
           <span>Registrarse</span>
         </button>
         <button mat-menu-item (click)="editPerson()">
           <mat-icon>settings</mat-icon>
           <span>Editar perfil</span>
+        </button>
+
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>phonelink_off</mat-icon>
+          <span>Cerrar sesion</span>
         </button>
     </mat-menu>
 
