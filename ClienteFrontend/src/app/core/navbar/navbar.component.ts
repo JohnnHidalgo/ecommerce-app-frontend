@@ -2,10 +2,9 @@ import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { MatDialogConfig,MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {LoginComponent } from '../authentication/login/login.component';
 import { ServiceService } from '../Service/service.service';
-import { ClientService } from '../Service/client.service';
 import { SigninComponent } from '../authentication/signin/signin.component';
 
 
@@ -33,7 +32,7 @@ export class NavbarComponent {
 
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
+    dialogConfig.width = "50%";
 
     this.dialog.open(LoginComponent, dialogConfig);
 
@@ -43,7 +42,12 @@ export class NavbarComponent {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+
     this.dialog.open(SigninComponent, dialogConfig);
+
+
+    
 
   }
 }

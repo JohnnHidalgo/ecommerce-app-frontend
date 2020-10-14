@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Client } from '../../../Shared/Models/Cliente';
+import { Cliente } from '../../../Shared/Models/Cliente';
 import { ServiceService } from '../../Service/service.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -10,35 +12,40 @@ import { ServiceService } from '../../Service/service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  constructor(private service:ServiceService,private router: Router,private snackBar: MatSnackBar) { }
 
   nickname: string;
   password: string;
   hide = true;
 
+  cliente = new FormGroup({
+    nickname: new FormControl(''),
+    password: new FormControl('')
+  });
 
-  constructor(private router: Router) { }
+  client: Cliente = new Cliente();
 
+  clienReturn: Cliente;
   ngOnInit(): void {
   }
 
 
-  login(): void{
-    var logClient = new Client();
-    logClient.nicknameUser = this.nickname;
-    logClient.password = this.password;
+  login(){
+    console.log(this.cliente.value);
 
-    if (logClient.nicknameUser == 'Alexander1119' && logClient.password == 'Alexander1119' ){
-        console.log('Bienvenido ' + this.nickname);
-    }
-    // console.log(logClient);
-    // this.service.loginClient(logClient)
-    // .subscribe(data => {
-    //   if (data != null) {
-    //     console.log('Bienvenido ' + this.nickname);
-    //   }else{
-    //     console.log('Error:  Los datos no son correctos');
-    //   }
-    // });
+    this.client.nicknameUser = this.nickname;
+    this.client.password = this.password;
+
+    console.log(this.cliente.value);
+    this.service.loginClient(this.client)
+    .subscribe(data => {
+      this.clienReturn=data;
+      if (data != null) {
+        console.log('Bienvenido ' + this.clienReturn.lastName);
+      }else{
+        console.log('Error:  Los datos no son correctos');
+      }
+    });
 
   }
 

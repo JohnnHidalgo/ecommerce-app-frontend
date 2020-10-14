@@ -2,8 +2,9 @@ export class Producto{
     idProduct: number;
     name: string;
     description: string;
-    cost: number;
+    price: number;
     code: number;
     quantity: number;
     type: string;
+    available: boolean;
 }

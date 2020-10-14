@@ -3,41 +3,40 @@
         Registrarse
     </mat-card-title>
     <mat-dialog-content>
-        <form action="">
+        <form [formGroup]='Cliente' action="">
             <mat-form-field appearance="fill">
                 <mat-label>Ingrese su nombre de usuario: </mat-label>
-                <input type='text' matInput placeholder="Nombre de usuario">
+                <input [(ngModel)]="nickName" formControlName='nickName' type='text' matInput placeholder="Nombre de usuario">
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Ingrese su primer nombre: </mat-label>
-                <input type='text' matInput placeholder="Primer nombre">
+                <input [(ngModel)]="firstName" formControlName='firstName' type='text' matInput placeholder="Primer nombre">
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Ingrese su segundo nombre: </mat-label>
-                <input type='text' matInput placeholder="Segundo nombre">
+                <input [(ngModel)]="secondName" formControlName='secondName' type='text' matInput placeholder="Segundo nombre">
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Ingrese su primer apellido: </mat-label>
-
-                <input type='text' matInput placeholder="Apellido">
+                <input [(ngModel)]="firstLastName" formControlName='firstLastName' type='text' matInput placeholder="Apellido">
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Ingrese su segundo apellido: </mat-label>
-                <input type='text' matInput placeholder="Segundo apellido">
+                <input [(ngModel)]="secondLastName" formControlName='secondLastName' type='text' matInput placeholder="Segundo apellido">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Ingrese su correo: </mat-label>
-                <input type='text' matInput placeholder="Correo">
+                <input [(ngModel)]="email" formControlName='email' type='text' matInput placeholder="Correo">
 
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Ingrese su contraseña: </mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="Contraseña">
+                <input [(ngModel)]="password" formControlName='password' matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="Contraseña">
             </mat-form-field>
 
-            <button type="submit" mat-raised-button color='primary'>Signin</button>
+            <button (click)='signin()' type="submit" mat-raised-button color='primary'>Signin</button>
         </form>
     </mat-dialog-content>
 </mat-card>

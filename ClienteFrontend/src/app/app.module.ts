@@ -21,6 +21,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -28,14 +30,19 @@ import {MatInputModule} from '@angular/material/input';
 
 import { LoginComponent } from './core/authentication/login/login.component';
 import { SigninComponent } from './core/authentication/signin/signin.component';
-
+import { ServiceService } from './core/Service/service.service';
+import { HttpClientModule } from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HomeComponent } from './modules/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    SigninComponent
+    SigninComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +63,12 @@ import { SigninComponent } from './core/authentication/signin/signin.component';
     MatRadioModule,
     MatGridListModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent, SigninComponent]
 })

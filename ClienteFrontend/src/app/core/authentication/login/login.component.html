@@ -4,19 +4,19 @@
     </mat-card-title>
 
     <mat-card-content>
-        <form action="">
+        <form [formGroup]='cliente' action="">
 
             <mat-form-field>
                 <mat-label>Ingrese su nombre de usuario: </mat-label>
-                <input type='text' matInput placeholder="User name">
+                <input [(ngModel)]="nickname" formControlName='nickname' type='text' matInput placeholder="User name">
             </mat-form-field>
 
             <mat-form-field appearance="fill">
                 <mat-label>Ingrese su contraseña: </mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="Contraseña">
+                <input [(ngModel)]="password" formControlName='password' matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="Contraseña">
             </mat-form-field>
 
-            <button type="submit" mat-raised-button color='primary'>Login</button>
+            <button (click)='login()' type="submit" mat-raised-button color='primary'>Login</button>
         </form>
 
 
