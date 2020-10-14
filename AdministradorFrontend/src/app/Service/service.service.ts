@@ -21,7 +21,7 @@ export class ServiceService {
   UrlPersonaSeller='http://localhost:8080/ejemplo01/k1';
   UrlPersonaClient='http://localhost:8080/ejemplo01/k1';
 
-  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard';
+  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard"';
   viewUrl='http://localhost:8080/ejemplo01/k1/view/';
   attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
   graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
@@ -67,6 +67,9 @@ export class ServiceService {
   updateUserSeller(user:User){
     return this.http.put<User>(this.UrlPersonaSeller+"/persona/editUserSeller",user);
   }
+  deleteUserSeller(user:User){
+    return this.http.put<User>(this.UrlPersonaSeller+"/seller/deletesellerClient",user);
+  }
 
   getUserClient(){  
     return this.http.get<User[]>(this.UrlPersonaClient+"/cliente/userclientlist");
@@ -87,6 +90,10 @@ export class ServiceService {
   geProductId(id:number){
     return this.http.get<Product>(this.UrlProduct+"/idproducto/"+id);
   }
+  deleteProduct(product:Product){
+    return this.http.put<Product>(this.UrlProduct+"/deleteproducto",product);
+  }
+
 
   getDashboardbyUser(idUser:number){
     return this.http.get<Dashboard[]>(this.dashboardUrl+"/userdash/"+idUser);

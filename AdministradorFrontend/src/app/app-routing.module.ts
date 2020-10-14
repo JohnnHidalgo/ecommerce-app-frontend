@@ -20,6 +20,8 @@ import { EditUserClientComponent } from './UIelement/UserClient/edit-user-client
 import { StoreComponent } from './store/store.component';
 import { AddProductComponent } from './UIelement/Product/add-product/add-product.component';
 import { EditProductComponent } from './UIelement/Product/edit-product/edit-product.component';
+import { DeleteProductComponent } from './UIelement/Product/delete-product/delete-product.component';
+import { DeleteUserSellerComponent } from './UIelement/UserSeller/delete-user-seller/delete-user-seller.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/presentation',pathMatch: 'full'},
@@ -31,6 +33,7 @@ const routes: Routes = [
   {path:'addUserSeller',component:AddUserSellerComponent, },
   {path:'listUserSeller',component:ListUserSellerComponent, canActivate:[LoginGuard]},
   {path:'editUserSeller',component:EditUserSellerComponent, canActivate:[LoginGuard]},
+  {path:'deleteUserSeller',component:DeleteUserSellerComponent, canActivate:[LoginGuard]},
   {path:'addUserClient',component:AddUserClientComponent, },
   {path:'listUserClient',component:ListUserClientComponent, canActivate:[LoginGuard]},
   {path:'editUserClient',component:EditUserClientComponent, canActivate:[LoginGuard]},
@@ -40,7 +43,8 @@ const routes: Routes = [
   {path: 'presentation', component:PresentationComponent},
   {path: 'store', component:StoreComponent},
   {path: 'addProduct', component:AddProductComponent},
-  {path: 'editProduct', component:EditProductComponent}
+  {path: 'editProduct', component:EditProductComponent},
+  {path: 'deleteProduct', component:DeleteProductComponent}
   
 ];
 

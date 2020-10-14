@@ -26,10 +26,7 @@ export class ListUserSellerComponent implements OnInit {
   }
 
   DeleteSeller(user:User){
-    this.service.deleteUser(user)
-    .subscribe(data=>{
-      this.user=this.user.filter(p=>p!==user);
-      alert("Usuario eliminado...");
-    })
+    localStorage.setItem("id",user.idUser.toString());
+    this.router.navigate(["deleteUserSeller"])
   }
 }

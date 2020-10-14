@@ -50,6 +50,8 @@ import { DeleteviewdialogComponent } from './UIelement/dialogs/deleteviewdialog/
 import { AddProductComponent } from './UIelement/Product/add-product/add-product.component';
 import { EditProductComponent } from './UIelement/Product/edit-product/edit-product.component';
 import { DeleteproductdialogComponent } from './UIelement/dialogs/deleteproductdialog/deleteproductdialog.component';
+import { DeleteProductComponent } from './UIelement/Product/delete-product/delete-product.component';
+import { DeleteUserSellerComponent } from './UIelement/UserSeller/delete-user-seller/delete-user-seller.component';
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -82,6 +84,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     AddProductComponent,
     EditProductComponent,
     DeleteproductdialogComponent,
+    DeleteProductComponent,
+    DeleteUserSellerComponent
   ],
   imports: [
     BrowserModule,

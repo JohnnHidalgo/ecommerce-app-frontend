@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
-  selector: 'app-edit-product',
-  templateUrl: './edit-product.component.html',
-  styleUrls: ['./edit-product.component.css']
+  selector: 'app-delete-product',
+  templateUrl: './delete-product.component.html',
+  styleUrls: ['./delete-product.component.css']
 })
-export class EditProductComponent implements OnInit {
-  
+export class DeleteProductComponent implements OnInit {
+
   product:Product = new Product();
   constructor(private router:Router,private service:ServiceService) { }
 
@@ -25,15 +25,13 @@ export class EditProductComponent implements OnInit {
     })
   }
 
-
-  UpdateProduct(product:Product){
+  DeleteProduct(product:Product){
     console.log(this.product);
-    this.service.updateProduct(this.product)
+    this.service.deleteProduct(this.product)
     .subscribe(data=>{
       this.product=data;
-      alert("Se Actualizo con Exito...!!!");
+      alert("Se Eliminó con Exito...!!!");
       this.router.navigate(["store"]);
     })
   }
-
 }
