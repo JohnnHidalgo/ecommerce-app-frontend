@@ -27,9 +27,6 @@ export class ServiceService {
   graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
   graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
 
-
-
-
   UrlProduct='http://localhost:8080/ejemplo01/k1/producto';
 
 
@@ -61,10 +58,6 @@ export class ServiceService {
   }
 
 
-
-
-
-
   createUserSeller(user:User){
     return this.http.post<User>(this.UrlPersonaSeller+"/persona/addUserSeller/",user);
   }
@@ -85,7 +78,15 @@ export class ServiceService {
   createProduct(product:Product){
     return this.http.post<Product>(this.UrlProduct+"/idtienda/1",product);
   }
-
+  getProduct(){  
+    return this.http.get<Product[]>(this.UrlProduct+"/productlist");
+  }
+  updateProduct(product:Product){
+    return this.http.put<Product>(this.UrlProduct+"/editproducto",product);
+  }
+  geProductId(id:number){
+    return this.http.get<Product>(this.UrlProduct+"/idproducto/"+id);
+  }
 
   getDashboardbyUser(idUser:number){
     return this.http.get<Dashboard[]>(this.dashboardUrl+"/userdash/"+idUser);

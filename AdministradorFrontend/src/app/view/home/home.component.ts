@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["dashboard"]);
   }
   //connect to api
-  s
+  
 
   openDeletionDialog(){
     
