@@ -42,7 +42,7 @@ export class NavbarComponent {
 
     nombreToolbar: string;
 
-    displaylogin= true;
+    displaylogin = true;
 
 
   login(): void {
@@ -55,17 +55,17 @@ export class NavbarComponent {
     dialogRef.afterClosed().subscribe(
       data => {
           this.service.dataClientwithNickname(data)
-          .subscribe(client=>{
-              this.dataClient=client;
-              if(this.dataClient.name!=null){
+          .subscribe(client => {
+              this.dataClient = client;
+              if (this.dataClient.name != null){
                 console.log(client);
                 console.log('usuario  encontrado');
-                this.nombreToolbar=this.dataClient.name+' '+this.dataClient.lastName;
-                this.snackBar.open('Bienvenido '+ data, '', {duration: 2000,});
-                this.displaylogin=  false;
+                this.nombreToolbar = this.dataClient.name + ' ' + this.dataClient.lastName;
+                this.snackBar.open('Bienvenido ' + data, '', {duration: 2000, });
+                this.displaylogin =  false;
 
               }else{
-                this.nombreToolbar="";
+                this.nombreToolbar = "";
                 console.log(client);
                 console.log('usuario no encontrado');
                 this.snackBar.open('Los datos no son correctos ', '', {duration: 2000,});
@@ -73,7 +73,7 @@ export class NavbarComponent {
               }
           });
       });
-      // , error => this.logService.print(error, LogService.ERROR_MSG));
+    // , error => this.logService.print(error, LogService.ERROR_MSG));
     // const dialogConfig = new MatDialogConfig();
 
     // dialogConfig.disableClose = false;
@@ -81,7 +81,6 @@ export class NavbarComponent {
     // dialogConfig.width = "50%";
 
     // this.dialog.open(LoginComponent, dialogConfig);
-    
   }
 
   signin() {
