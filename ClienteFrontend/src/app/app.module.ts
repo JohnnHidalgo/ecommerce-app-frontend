@@ -37,6 +37,14 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HomeComponent } from './modules/home/home.component';
 import { EditClientComponent } from './core/Client/edit-client/edit-client.component';
+import { StoreComponent } from './modules/store/store/store.component';
+import { ListStoreComponent } from './modules/store/list-store/list-store.component';
+import { ListProductComponent } from './modules/product/list-product/list-product.component';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartComponent } from './modules/product/cart/cart.component';
+import { ProductComponent } from './modules/product/product/product.component';
+
+
 
 @NgModule({
   declarations: [
@@ -45,7 +53,12 @@ import { EditClientComponent } from './core/Client/edit-client/edit-client.compo
     LoginComponent,
     SigninComponent,
     HomeComponent,
-    EditClientComponent
+    EditClientComponent,
+    StoreComponent,
+    ListStoreComponent,
+    ListProductComponent,
+    CartComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +83,9 @@ import { EditClientComponent } from './core/Client/edit-client/edit-client.compo
     HttpClientModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    NgbModalModule
   ],
   providers: [ServiceService],
   bootstrap: [AppComponent],

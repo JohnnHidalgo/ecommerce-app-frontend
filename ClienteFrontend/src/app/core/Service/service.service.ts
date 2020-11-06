@@ -13,7 +13,7 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   client = 'http://localhost:8080/ejemplo01/k1/cliente';
-  product = 'http://localhost:8080/ejemplo01/k1/product';
+  product = 'http://localhost:8080/ejemplo01/k1/producto';
   person = 'http://localhost:8080/ejemplo01/k1/persona';
 
   // Client
@@ -37,6 +37,10 @@ export class ServiceService {
   // Product
   addProductToCart( product: Producto){
     return this.http.post<Producto>(this.client + '/addUserClient' , product);
+  }
+
+  listProduct(){
+    return this.http.get<Producto[]>(this.product+"/productlist");
   }
 
 }
