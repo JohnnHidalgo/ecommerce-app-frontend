@@ -110,5 +110,9 @@ app.intent('Default Welcome Intent - OPTION', (conv, params, option) => {
 });
 
 
+app.intent('AddProductIntent', (conv, { product, number, agregar }) => {
+    conv.ask(`Agregando: ${number} ${product}`);
+});
+
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
