@@ -121,5 +121,19 @@ app.intent('RequestPurchaseIntent', (conv) => {
 app.intent('RequestUserIntent', (conv, { clienttype }) => {
     conv.ask('Ok, dime ¿Que productos desea buscar?');
 });
+app.intent('RequestProductIntent', (conv, { number, product }) => {
+    conv.ask(`Este es el producto huevos?`);
+    conv.ask(new BasicCard({
+        text: 'Huevos',
+        subtitle: 'Huevos de la granja de pedro',
+        title: 'Huevos',
+        image: new Image({
+            url: 'https://s1.eestatic.com/2019/08/06/ciencia/nutricion/Alimentacion-Supermercados-Huevo-Nutricion_419468858_131721191_1024x576.jpg',
+            alt: 'Image alternate text',
+        }),
+        display: 'CROPPED',
+    }));
+});
+
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
