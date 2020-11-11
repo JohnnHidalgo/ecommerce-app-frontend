@@ -41,7 +41,9 @@
 
     <div class="spacer"></div>
 
-    <a mat-button routerLink='home'>Home<mat-icon>home</mat-icon></a>
+    <a mat-button routerLink='listProduct'>Productos<mat-icon>category</mat-icon></a>
+    <a mat-button routerLink='listStore'>Tiendas<mat-icon>store</mat-icon></a>
+
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-label>{{nombreToolbar}}</mat-label>
       <mat-icon>account_circle</mat-icon>
@@ -57,12 +59,12 @@
           <mat-icon>person_add</mat-icon>
           <span>Registrarse</span>
         </button>
-        <button mat-menu-item (click)="editPerson()">
+        <button mat-menu-item (click)="editPerson()" *ngIf="!displaylogin">
           <mat-icon>settings</mat-icon>
           <span>Editar perfil</span>
         </button>
 
-        <button mat-menu-item (click)="logout()">
+        <button mat-menu-item (click)="logout() " *ngIf="!displaylogin">
           <mat-icon>phonelink_off</mat-icon>
           <span>Cerrar sesion</span>
         </button>

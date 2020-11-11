@@ -1,5 +1,7 @@
 <div mat-dialog-content>
-    <p>What's your favorite animal?</p>
+    <mat-card-title>
+        Iniciar sesion
+    </mat-card-title>
     <mat-form-field>
         <mat-label>Nombre de usuario</mat-label>
         <input matInput [(ngModel)]='data' required='required' type='text'>
@@ -12,6 +14,6 @@
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="cancelar()">Cancelar</button>
-    <button mat-button [mat-dialog-close]='data' (click)='login()' cdkFocusInitial>Aceptar</button>
+    <button mat-button color='primary' (click)="cancelar()">Cancelar</button>
+    <button mat-button color='primary' [mat-dialog-close]='data' (click)='login()' cdkFocusInitial>Aceptar</button>
 </div>

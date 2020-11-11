@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Producto } from '../../Shared/Models/Producto';
 import { Cliente } from '../../Shared/Models/Cliente';
+import { Tienda } from '../../Shared/Models/Tienda';
+
+import { element } from 'protractor';
+import { DatosTienda } from '../../Shared/Models/DatosTienda';
 
 
 
@@ -13,7 +17,7 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   client = 'http://localhost:8080/ejemplo01/k1/cliente';
-  product = 'http://localhost:8080/ejemplo01/k1/product';
+  product = 'http://localhost:8080/ejemplo01/k1/producto';
   person = 'http://localhost:8080/ejemplo01/k1/persona';
 
   // Client
@@ -39,4 +43,37 @@ export class ServiceService {
     return this.http.post<Producto>(this.client + '/addUserClient' , product);
   }
 
+  listProduct(){
+    return this.http.get<Producto[]>(this.product+"/productlist");
+  }
+
+
+
+
+
+  tiendas = new Array<Tienda>();
+  //Store
+  listStore() {
+    // return this.http.get("D:\Universidad Catolica Boliviana\8vo semestre\Taller de sistenas de informacion\ecommerce-app-frontend\ClienteFrontend\src\app\Shared\Models\DatosTienda.json");
+    
+    this.tiendas = [];
+    let tienda;
+
+    const jsonData = JSON.parse(DatosTienda.tiendas);
+
+    jsonData.forEach( element => {
+
+      tienda = new Tienda(
+        element.idStore,
+        element.nameStore,
+        element.locationStore,
+        element.urlImage,
+        element.nameImage
+      );
+
+      this.tiendas.push(tienda);
+
+    });
+    return this.tiendas;
+  }
 }
