@@ -17,18 +17,18 @@ export class ServiceService {
   
   constructor(private http:HttpClient) { }
 
-  Url='http://localhost:8080/ejemplo01//k1/persona/';
+  Url='https://biascomers.herokuapp.com/ejemplo01//k1/persona/';
 
-  UrlPersonaSeller='http://localhost:8080/ejemplo01/k1';
-  UrlPersonaClient='http://localhost:8080/ejemplo01/k1';
+  UrlPersonaSeller='https://biascomers.herokuapp.com/ejemplo01/k1';
+  UrlPersonaClient='https://biascomers.herokuapp.com/ejemplo01/k1';
 
-  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard';
-  viewUrl='http://localhost:8080/ejemplo01/k1/view/';
-  attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
-  graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
-  graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
+  dashboardUrl='https://biascomers.herokuapp.com/ejemplo01/k1/dashboard';
+  viewUrl='https://biascomers.herokuapp.com/ejemplo01/k1/view/';
+  attributeUrl='https://biascomers.herokuapp.com/ejemplo01/k1/atribute/';
+  graphicUrl='https://biascomers.herokuapp.com/ejemplo01/k1/graphic/';
+  graphicTypeUrl='https://biascomers.herokuapp.com/ejemplo01/k1/tipo_grafico/';
 
-  UrlProduct='http://localhost:8080/ejemplo01/k1/producto';
+  UrlProduct='https://biascomers.herokuapp.com/ejemplo01/k1/producto';
 
 
   getUser(){  

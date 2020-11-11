@@ -79,9 +79,34 @@ app.intent('Default Welcome Intent', (conv) => {
         },
 
     }));
+});
 
 
+app.intent('Default Welcome Intent - OPTION', (conv, params, option) => {
+    if (!conv.screen ||
+        !conv.surface.capabilities.has('actions.capability.WEB_BROWSER')) {
+        conv.ask('Lo lamento, por favor use un teléfono móvil.');
+        return;
+    }
 
+    const SELECTED_ITEM_RESPONSES = {
+        'Busqueda': 'Tipo de cliente',
+        'AgregarProductos': 'Dime que producto y cuantas unidades estás agregando al inventario',
+        'Inventario': 'B',
+        'Ventas': 'A',
+    };
+
+    if (SELECTED_ITEM_RESPONSES[option] == 'A') {
+        conv.ask(`Este es el detale: 1500 Bolivianos`);
+        conv.ask(`Puedes decir: menú. Para volver al menú principal`);
+
+    } else if (SELECTED_ITEM_RESPONSES[option] == 'B') {
+        conv.ask(`Actualmente tienes 35 huevos, 12 botellas de agua y 15 unidades de pan`);
+        conv.ask(`Puedes decir: menú. Para volver al menú principal`);
+    } else {
+        conv.ask(`${SELECTED_ITEM_RESPONSES[option]}`);
+
+    }
 });
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
