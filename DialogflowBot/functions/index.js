@@ -114,5 +114,12 @@ app.intent('AddProductIntent', (conv, { product, number, agregar }) => {
     conv.ask(`Agregando: ${number} ${product}`);
 });
 
+app.intent('RequestPurchaseIntent', (conv) => {
+    conv.ask('Tipo de cliente');
+});
+
+app.intent('RequestUserIntent', (conv, { clienttype }) => {
+    conv.ask('Ok, dime ¿Que productos desea buscar?');
+});
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
