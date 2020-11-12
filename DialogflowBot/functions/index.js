@@ -23,21 +23,23 @@ const app = dialogflow({ debug: true });
 
 admin.initializeApp();
 const db = admin.firestore();
-const collectionRef = db.collection('planets');
+const collectionRef = db.collection('planet');
 
 
 app.intent('planetaIntent', (conv, { planet }) => {
+
     const term = planet.toLowerCase();
-    const termRef = collectionRef.doc(`${term}`);
+
+    const termRef = collectionRef.doc(`${planet}`);
 
     return termRef.get()
         .then((snapshot) => {
             const { definition, word } = snapshot.data();
-            conv.ask(`Here you go, ${word}, ${definition}. ` +
-                `What else do you want to know?`);
+            conv.ask(`planeta encontrado ${word}`);
+            //conv.ask(`Here you go, ${word}, ${definition}.What else do you want to know?`);
         }).catch((e) => {
             console.log('error:', e);
-            conv.close('Sorry, try again and tell me another planet.');
+            conv.ask('Sorry, try again and tell me another planet.');
         });
 });
 
