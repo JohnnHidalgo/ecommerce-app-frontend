@@ -18,8 +18,30 @@ const {
 } = require('actions-on-google');
 
 const functions = require('firebase-functions');
-
+const admin = require('firebase-admin');
 const app = dialogflow({ debug: true });
+
+admin.initializeApp();
+const db = admin.firestore();
+const collectionRef = db.collection('planets');
+
+
+app.intent('planetaIntent', (conv, { planet }) => {
+    const term = planet.toLowerCase();
+    const termRef = collectionRef.doc(`${term}`);
+
+    return termRef.get()
+        .then((snapshot) => {
+            const { definition, word } = snapshot.data();
+            conv.ask(`Here you go, ${word}, ${definition}. ` +
+                `What else do you want to know?`);
+        }).catch((e) => {
+            console.log('error:', e);
+            conv.close('Sorry, try again and tell me another planet.');
+        });
+});
+
+
 
 app.intent('Default Welcome Intent', (conv) => {
 
@@ -81,7 +103,6 @@ app.intent('Default Welcome Intent', (conv) => {
     }));
 });
 
-
 app.intent('Default Welcome Intent - OPTION', (conv, params, option) => {
     if (!conv.screen ||
         !conv.surface.capabilities.has('actions.capability.WEB_BROWSER')) {
@@ -95,7 +116,6 @@ app.intent('Default Welcome Intent - OPTION', (conv, params, option) => {
         'Inventario': 'B',
         'Ventas': 'A',
     };
-
     if (SELECTED_ITEM_RESPONSES[option] == 'A') {
         conv.ask(`Este es el detale: 1500 Bolivianos`);
         conv.ask(`Puedes decir: menú. Para volver al menú principal`);
@@ -111,6 +131,8 @@ app.intent('Default Welcome Intent - OPTION', (conv, params, option) => {
 
 
 app.intent('AddProductIntent', (conv, { product, number, agregar }) => {
+    //const usersDb = db.collection('users'); 
+
     conv.ask(`Agregando: ${number} ${product}`);
 });
 
