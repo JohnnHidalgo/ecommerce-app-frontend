@@ -141,15 +141,15 @@ app.intent('Default Welcome Intent - OPTION', (conv, params, option) => {
 app.intent('buscartienda', (conv, { tienda }) => {
 
     const term = planet.toLowerCase();
-    const termRef = collectionRef.doc(`${planet}`);
+    const termRef = collectionRef.doc(`${tienda}`);
     return termRef.get()
         .then((snapshot) => {
             const { definition, word } = snapshot.data();
-            conv.ask(`planeta encontrado ${word}`);
-            //conv.ask(`Here you go, ${word}, ${definition}.What else do you want to know?`);
+            conv.ask(`Tieda encontrada ${word}`);
+            conv.ask(`Desea ver los productos de: ${word}`);
         }).catch((e) => {
             console.log('error:', e);
-            conv.ask('Sorry, try again and tell me another planet.');
+            conv.ask(`Lo lamento no encontré ${tienda}`);
         });
 
     conv.ask(`Agregando: ${number} ${product}`);
