@@ -20,18 +20,15 @@ const {
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const app = dialogflow({ debug: true });
-
 admin.initializeApp();
 const db = admin.firestore();
 const collectionRef = db.collection('planet');
 
+const collectionStore = db.collection('Stores');
 
 app.intent('planetaIntent', (conv, { planet }) => {
-
     const term = planet.toLowerCase();
-
     const termRef = collectionRef.doc(`${planet}`);
-
     return termRef.get()
         .then((snapshot) => {
             const { definition, word } = snapshot.data();
@@ -43,10 +40,7 @@ app.intent('planetaIntent', (conv, { planet }) => {
         });
 });
 
-
-
 app.intent('Default Welcome Intent', (conv) => {
-
     if (!conv.screen) {
         conv.ask('Lo lamento, intenta acceder a través de un dispocitivo con pantalla');
         return;
@@ -55,6 +49,19 @@ app.intent('Default Welcome Intent', (conv) => {
     conv.ask(new Carousel({
         title: 'Mi tienda Kuinbi',
         items: {
+
+            'BusquedaT': {
+                synonyms: [
+                    'BusquedaT'
+                ],
+                title: 'Buscar Tienda',
+                description: 'Mi tienda Kuibi.',
+                image: new Image({
+                    url: 'https://www.enriquedans.com/wp-content/uploads/2016/09/shopping-cart.jpg',
+                    alt: 'Realizar una Busqueda',
+                }),
+            },
+
             'Busqueda': {
                 synonyms: [
                     'Busqueda'
@@ -66,7 +73,6 @@ app.intent('Default Welcome Intent', (conv) => {
                     alt: 'Realizar una Busqueda',
                 }),
             },
-
             'AgregarProductos': {
                 synonyms: [
                     'AgergarProductos'
@@ -101,7 +107,6 @@ app.intent('Default Welcome Intent', (conv) => {
                 }),
             },
         },
-
     }));
 });
 
@@ -113,6 +118,7 @@ app.intent('Default Welcome Intent - OPTION', (conv, params, option) => {
     }
 
     const SELECTED_ITEM_RESPONSES = {
+        'BusquedaT': 'Nombre de la Tienda',
         'Busqueda': 'Tipo de cliente',
         'AgregarProductos': 'Dime que producto y cuantas unidades estás agregando al inventario',
         'Inventario': 'B',
@@ -131,6 +137,23 @@ app.intent('Default Welcome Intent - OPTION', (conv, params, option) => {
     }
 });
 
+//ACtualizar la compra
+app.intent('buscartienda', (conv, { tienda }) => {
+
+    const term = planet.toLowerCase();
+    const termRef = collectionRef.doc(`${planet}`);
+    return termRef.get()
+        .then((snapshot) => {
+            const { definition, word } = snapshot.data();
+            conv.ask(`planeta encontrado ${word}`);
+            //conv.ask(`Here you go, ${word}, ${definition}.What else do you want to know?`);
+        }).catch((e) => {
+            console.log('error:', e);
+            conv.ask('Sorry, try again and tell me another planet.');
+        });
+
+    conv.ask(`Agregando: ${number} ${product}`);
+});
 
 app.intent('AddProductIntent', (conv, { product, number, agregar }) => {
     //const usersDb = db.collection('users'); 
