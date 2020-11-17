@@ -53,6 +53,7 @@ import { DeleteProductComponent } from './UIelement/Product/delete-product/delet
 import { DeleteUserSellerComponent } from './UIelement/UserSeller/delete-user-seller/delete-user-seller.component';
 import { UpdateDashboardDialogComponent } from './UIelement/dialogs/update-dashboard-dialog/update-dashboard-dialog.component';
 import { AddpermisodialogComponent } from './UIelement/dialogs/addpermisodialog/addpermisodialog.component';
+import { SellerLoginComponent } from './view/seller-login/seller-login.component';
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
 
@@ -87,7 +88,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     DeleteProductComponent,
     DeleteUserSellerComponent,
     UpdateDashboardDialogComponent,
-    AddpermisodialogComponent
+    AddpermisodialogComponent,
+    SellerLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -96,8 +98,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
-    MatToolbarModule,
     MatButtonModule,
+    MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,

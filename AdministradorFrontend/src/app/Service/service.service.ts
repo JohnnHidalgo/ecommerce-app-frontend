@@ -17,25 +17,24 @@ export class ServiceService {
   
   constructor(private http:HttpClient) { }
 
-  Url='https://biascomers.herokuapp.com/ejemplo01//k1/persona/';
+  Url='http://localhost:8080/ejemplo01/k1/persona/';
 
-  UrlPersonaSeller='https://biascomers.herokuapp.com/ejemplo01/k1';
-  UrlPersonaClient='https://biascomers.herokuapp.com/ejemplo01/k1';
+  UrlPersonaSeller='http://localhost:8080/ejemplo01/k1';
+  UrlPersonaClient='http://localhost:8080/ejemplo01/k1';
 
-  dashboardUrl='https://biascomers.herokuapp.com/ejemplo01/k1/dashboard';
-  viewUrl='https://biascomers.herokuapp.com/ejemplo01/k1/view/';
-  attributeUrl='https://biascomers.herokuapp.com/ejemplo01/k1/atribute/';
-  graphicUrl='https://biascomers.herokuapp.com/ejemplo01/k1/graphic/';
-  graphicTypeUrl='https://biascomers.herokuapp.com/ejemplo01/k1/tipo_grafico/';
-
-  UrlProduct='https://biascomers.herokuapp.com/ejemplo01/k1/producto';
+  dashboardUrl='http://localhost:8080/ejemplo01/k1/dashboard';
+  viewUrl='http://localhost:8080/ejemplo01/k1/view/';
+  attributeUrl='http://localhost:8080/ejemplo01/k1/atribute/';
+  graphicUrl='http://localhost:8080/ejemplo01/k1/graphic/';
+  graphicTypeUrl='http://localhost:8080/ejemplo01/k1/tipo_grafico/';
+  UrlProduct='http://localhost:8080/ejemplo01/k1/producto';
 
 
   getUser(){  
     return this.http.get<User[]>(this.Url);
   }
   createUser(user:User){
-    return this.http.post<User>(this.Url+"/add/",user);
+    return this.http.post<User>(this.Url+"/adduser/",user);
   }
   getUserId(id:number){
     return this.http.get<User>(this.Url+"/idUser/"+id);
@@ -60,7 +59,8 @@ export class ServiceService {
 
 
   createUserSeller(user:User){
-    return this.http.post<User>(this.UrlPersonaSeller+"/persona/addUserSeller/",user);
+                                                  
+    return this.http.post<User>(this.UrlPersonaSeller+"/persona/addUserSeller",user);
   }
   getUserSeller(){  
     return this.http.get<User[]>(this.UrlPersonaSeller+"/seller/userselerlist");
@@ -75,6 +75,19 @@ export class ServiceService {
   privilegioUserSeller(privilegioList:Privilegios[]){
     return this.http.put<Privilegios[]>(this.UrlPersonaSeller+"/permissions/editUserSeller",privilegioList);
   }
+
+
+
+  loginUserSeller(user:User){
+    console.log(user);
+    return this.http.post<User>(this.UrlPersonaSeller+"/seller/loginuserSeller",user);
+  }
+  logingetUserSeller(nickname:String){
+    return this.http.get<User>(this.Url+"/userNick/"+nickname);
+  }
+
+
+
 
   getUserClient(){  
     return this.http.get<User[]>(this.UrlPersonaClient+"/cliente/userclientlist");

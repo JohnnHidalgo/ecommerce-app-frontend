@@ -22,6 +22,7 @@ import { AddProductComponent } from './UIelement/Product/add-product/add-product
 import { EditProductComponent } from './UIelement/Product/edit-product/edit-product.component';
 import { DeleteProductComponent } from './UIelement/Product/delete-product/delete-product.component';
 import { DeleteUserSellerComponent } from './UIelement/UserSeller/delete-user-seller/delete-user-seller.component';
+import { SellerLoginComponent } from './view/seller-login/seller-login.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/presentation',pathMatch: 'full'},
@@ -44,7 +45,8 @@ const routes: Routes = [
   {path: 'store', component:StoreComponent},
   {path: 'addProduct', component:AddProductComponent},
   {path: 'editProduct', component:EditProductComponent},
-  {path: 'deleteProduct', component:DeleteProductComponent}
+  {path: 'deleteProduct', component:DeleteProductComponent},
+  {path: 'loginSeller', component:SellerLoginComponent}
   
 ];
 
