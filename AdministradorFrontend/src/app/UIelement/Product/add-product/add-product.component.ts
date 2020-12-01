@@ -16,8 +16,13 @@ export class AddProductComponent implements OnInit {
   }
 
   CreateProduct(product:Product){
+    
     console.log(this.product);
     console.log("product");
+    product.nameImage = "Image";
+    product.urlImage = "https://www.kenwoodworld.com/Global/Countries/Spain/Carnes/31_PAN-AL-AGUA-HEAD.jpg";
+    this.product.nameImage="Imagen";
+    this.product.urlImage="https://www.kenwoodworld.com/Global/Countries/Spain/Carnes/31_PAN-AL-AGUA-HEAD.jpgImagen";
     this.service.createProduct(this.product)
     .subscribe(data=>{
       alert("Creación Exitosa");

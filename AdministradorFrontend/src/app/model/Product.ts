@@ -6,4 +6,6 @@ export class Product{
     code:number;
     quantity:number;
     type:String;
+    urlImage:String;
+    nameImage:String;
 }

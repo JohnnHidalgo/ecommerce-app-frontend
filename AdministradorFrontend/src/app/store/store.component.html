@@ -15,11 +15,14 @@
     <h4>Mis Productos</h4>
 </div>
 <div>
-    <mat-grid-list cols="4" rowHeight="2:1">
+    <mat-grid-list cols="3" rowHeight="2:1">
         <mat-grid-tile *ngFor="let product of product">
             <div>
                 {{product.name}}
             </div>
+            <br>
+            <img src="{{product.urlImage}}" height="100" width="100">
+            <br>
             <div>
                 <button (click)="editRoute(product)" class="btn btn-info" style="margin-left: 10px;">Editar</button>
             </div>

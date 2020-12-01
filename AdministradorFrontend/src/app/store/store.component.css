@@ -1,5 +1,7 @@
 mat-grid-tile {
     background: rgb(196, 178, 16);
+    height: 200.0;
+    width: 300.0;
 }
 
 .newDashButton {
